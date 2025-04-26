@@ -24,6 +24,10 @@ public class PlayerCollision : MonoBehaviour
         {
             gameManager.GameOver();
         }
+        if (collision.CompareTag("Key"))
+        {
+            Debug.Log("take key");
+        }
 
     }
 }
