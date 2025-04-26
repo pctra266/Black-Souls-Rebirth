@@ -22,7 +22,7 @@ public class PlayerCollision : MonoBehaviour
         }
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("hit enemy");
+            gameManager.GameOver();
         }
 
     }
