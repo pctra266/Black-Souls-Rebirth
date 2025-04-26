@@ -14,11 +14,14 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private bool isGrounded;
     private GameManager gameManager;
+
+    private AudioManager audioManager;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         gameManager = FindAnyObjectByType<GameManager>();
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -67,6 +70,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            audioManager.PlayJumpSound();
         }
     }
     private void UploadAnimation()
