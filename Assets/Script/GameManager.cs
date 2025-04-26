@@ -7,19 +7,17 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject gameWinUI;
     private bool isGameOver = false;
+    private bool isWin = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameOverUI.SetActive(false);
+        gameWinUI.SetActive(false);
         UploadScore();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void AddScore(int point)
     {
         score += point;
@@ -38,6 +36,15 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
     }
 
+    public void GameWin()
+    {
+        isWin = true;
+        Time.timeScale = 0;
+        
+        gameWinUI.SetActive(true);
+    }
+
+
     public void Restart()
     {
         isGameOver = false;
@@ -49,5 +56,14 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver()
     {
         return isGameOver;
+    }public bool IsGameWin()
+    {
+        return isWin;
+    }
+
+    public void goToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1;
     }
 }

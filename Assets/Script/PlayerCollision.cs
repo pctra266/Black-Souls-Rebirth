@@ -26,7 +26,8 @@ public class PlayerCollision : MonoBehaviour
         }
         if (collision.CompareTag("Key"))
         {
-            Debug.Log("take key");
+            Destroy(collision.gameObject);
+            gameManager.GameWin();
         }
 
     }
