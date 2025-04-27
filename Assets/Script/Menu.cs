@@ -8,6 +8,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+    public void ForestOfVengeance()
+    {
+        SceneManager.LoadScene("Forest of Vengeance");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
