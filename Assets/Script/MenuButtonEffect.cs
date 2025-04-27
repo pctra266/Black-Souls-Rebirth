@@ -2,11 +2,10 @@
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class MenuButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class MenuButtonEffect : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler
 {
     public TextMeshProUGUI textMeshPro;
     public Texture2D normalCursor; // Chuột bình thường
-    public Texture2D glowCursor;   // Chuột sáng
 
     private float originalFontSize;
     private float targetFontSize;
@@ -24,9 +23,8 @@ public class MenuButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExi
         targetFontSize = originalFontSize;
         originalColor = textMeshPro.color;
         targetColor = originalColor;
+        Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
 
-        // Đặt chuột sáng ngay từ đầu khi game bắt đầu
-        Cursor.SetCursor(glowCursor, Vector2.zero, CursorMode.Auto);
     }
 
     void Update()
@@ -37,17 +35,12 @@ public class MenuButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // Đổi con trỏ sáng khi hover vào button
-        Cursor.SetCursor(glowCursor, Vector2.zero, CursorMode.Auto);
-
         targetFontSize = originalFontSize + 5f; // Tăng font size
         targetColor = hoverColor; // Sáng lên
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // Trở về con trỏ sáng khi rời khỏi button
-        Cursor.SetCursor(glowCursor, Vector2.zero, CursorMode.Auto);
 
         targetFontSize = originalFontSize; // Trở về size cũ
         targetColor = defaultColor; // Trở về màu mặc định
