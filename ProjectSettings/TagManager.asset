@@ -48,14 +48,26 @@ TagManager:
   - name: BackGround
     uniqueID: 588045637
     locked: 0
+  - name: Ground_Back_2
+    uniqueID: 1052215429
+    locked: 0
+  - name: Ground_Back_1
+    uniqueID: 2133082499
+    locked: 0
   - name: Ground
     uniqueID: 83863499
     locked: 0
-  - name: ForeGround
-    uniqueID: 819858077
-    locked: 0
   - name: Player
     uniqueID: 3346724723
+    locked: 0
+  - name: Ground_Front_1
+    uniqueID: 1693917133
+    locked: 0
+  - name: Ground_Front_2
+    uniqueID: 3807924031
+    locked: 0
+  - name: ForeGround
+    uniqueID: 819858077
     locked: 0
   - name: Item
     uniqueID: 1622081667
