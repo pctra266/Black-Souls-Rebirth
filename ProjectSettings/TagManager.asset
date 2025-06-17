@@ -8,6 +8,7 @@ TagManager:
   - Trap
   - Enemy
   - Key
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -57,6 +58,9 @@ TagManager:
   - name: Ground
     uniqueID: 83863499
     locked: 0
+  - name: ForeGround
+    uniqueID: 819858077
+    locked: 0
   - name: Player
     uniqueID: 3346724723
     locked: 0
@@ -65,9 +69,6 @@ TagManager:
     locked: 0
   - name: Ground_Front_2
     uniqueID: 3807924031
-    locked: 0
-  - name: ForeGround
-    uniqueID: 819858077
     locked: 0
   - name: Item
     uniqueID: 1622081667

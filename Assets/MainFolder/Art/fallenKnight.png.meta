@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0964babd795a63a42b0b2e6649996bff
+guid: 3eb3f96df4f8bf74e9c605eaa6b6ec73
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2868539044483428322
-    second: wall_0
+      213: -2733259266758487016
+    second: fallenKnight_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wall_0
+      name: fallenKnight_0
       rect:
         serializedVersion: 2
-        x: 209
-        y: 19
-        width: 213
-        height: 300
+        x: 13
+        y: 0
+        width: 2058
+        height: 1500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2efe5c210191fc720800000000000000
-      internalID: 2868539044483428322
+      spriteID: 814d0d5ad23811ad0800000000000000
+      internalID: -2733259266758487016
       vertices: []
       indices: 
       edges: []

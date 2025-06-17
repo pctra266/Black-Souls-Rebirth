@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: d89a10105bb90f2409b63be49e1f7ba3
+guid: 3db445ab213a9f94db127e7189e8ea73
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3455273479700565292
-    second: trabody_0
+      213: -7341407202210888751
+    second: door_0
+  - first:
+      213: 6623719234781301212
+    second: door_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trabody_0
+      name: door_0
       rect:
         serializedVersion: 2
-        x: 770
-        y: 48
-        width: 332
-        height: 937
+        x: 511
+        y: 112
+        width: 894
+        height: 1213
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c2d41674ce893ff20800000000000000
-      internalID: 3455273479700565292
+      spriteID: 1d3c9b8cb051e1a90800000000000000
+      internalID: -7341407202210888751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_1
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 0
+        width: 44
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd9cf01dc8d2ceb50800000000000000
+      internalID: 6623719234781301212
       vertices: []
       indices: 
       edges: []

@@ -65,8 +65,6 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
         }
-
-
     }
 
     public void GravityHandle()
