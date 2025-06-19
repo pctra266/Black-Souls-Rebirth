@@ -18,7 +18,11 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
     private bool isAttack;
+    public int maxHealth = 5;
+    public int currentHeal;
     private GameManager gameManager;
+    public HealBarScript HealBarScript;
+
 
     //private AudioManager audioManager;
     private void Awake()
@@ -33,10 +37,11 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currentHeal = maxHealth;
         rb.gravityScale = gravityScale;
+        HealBarScript.SetMaxHealth(maxHealth);
     }
 
-    // Update is called once per frame
     void Update()
     {
         //if (gameManager.IsGameOver() || gameManager.IsGameWin())
@@ -50,6 +55,22 @@ public class PlayerController : MonoBehaviour
         UploadAnimation();
         JumpHandle();
         GravityHandle();
+        handleHealth();
+    }
+
+    private void handleHealth()
+    {
+        if(Input.GetKeyDown(KeyCode.F4))
+        {
+            Debug.Log("go to health controller");
+            TakeDamage(1);
+        }
+    }
+
+    private void TakeDamage(int damage)
+    {
+        currentHeal -= damage;
+        HealBarScript.SetHealth(currentHeal);
     }
     private void JumpHandle()
     {
@@ -96,11 +117,11 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         if(moveInput > 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3((float)-0.35, (float)0.35, 0);
         }
         if(moveInput < 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3((float)0.35, (float)0.35, 0);
 
         }
     }
