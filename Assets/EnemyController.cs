@@ -8,6 +8,9 @@ public class EnemyController : MonoBehaviour
     private Transform currentPoint;
     public float speed = 2f;
 
+    private float dazedTime;
+    public float startDazedTime;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,7 +19,17 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = (currentPoint.position - transform.position);
+        if(dazedTime <= 0)
+        {
+            speed = 2;
+        }
+        else
+        {
+            speed = 0;
+            dazedTime -= Time.deltaTime;
+        }
+
+            Vector2 direction = (currentPoint.position - transform.position);
 
         rb.linearVelocity = currentPoint == pointB.transform ? new Vector2(speed, 0) : new Vector2(-speed, 0);
 
@@ -34,5 +47,10 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
         Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
         Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
+    }
+
+    public void setDazedTime()
+    {
+        dazedTime = startDazedTime;
     }
 }

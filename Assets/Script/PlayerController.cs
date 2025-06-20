@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private bool isJumping;
     private bool isGrounded;
-    private bool isAttack;
     public int maxHealth = 5;
     public int currentHeal;
     private GameManager gameManager;
@@ -51,7 +50,6 @@ public class PlayerController : MonoBehaviour
         //}
         HandleMovement();
         CheckGround();
-        CheckAttack();
         UploadAnimation();
         JumpHandle();
         GravityHandle();
@@ -62,7 +60,6 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F4))
         {
-            Debug.Log("go to health controller");
             TakeDamage(1);
         }
     }
@@ -100,16 +97,12 @@ public class PlayerController : MonoBehaviour
             {
                 rb.gravityScale = gravityScale;
             }
-
         }
         else
         {
             rb.gravityScale = gravityScale;
         }
     }
-
-
-
 
     private void HandleMovement()
     {
@@ -122,7 +115,6 @@ public class PlayerController : MonoBehaviour
         if(moveInput < 0)
         {
             transform.localScale = new Vector3((float)0.35, (float)0.35, 0);
-
         }
     }
 
@@ -130,24 +122,11 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
-
-    private void CheckAttack()
-    {
-        if (Input.GetMouseButtonDown(0)) 
-        {
-            isAttack = true;
-        }
-        else
-        {
-            isAttack = false;
-        }
-    }
+    
     private void UploadAnimation()
     {
         bool isRunning = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
-        bool isAttacking = isAttack;
         animator.SetBool("isMoving", isRunning);
-        animator.SetBool("attack", isAttacking);
     }
 
 
