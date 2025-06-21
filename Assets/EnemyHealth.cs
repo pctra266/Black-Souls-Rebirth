@@ -31,8 +31,6 @@ public class EnemyHealth : MonoBehaviour
             Die();
         }
     }
-
-
     void Die()
     {
         Debug.Log("Enemy die");

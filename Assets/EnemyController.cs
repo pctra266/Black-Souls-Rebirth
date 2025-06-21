@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
             dazedTime -= Time.deltaTime;
         }
 
-            Vector2 direction = (currentPoint.position - transform.position);
+        Vector2 direction = (currentPoint.position - transform.position);
 
         rb.linearVelocity = currentPoint == pointB.transform ? new Vector2(speed, 0) : new Vector2(-speed, 0);
 
