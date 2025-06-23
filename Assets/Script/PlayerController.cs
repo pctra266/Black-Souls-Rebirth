@@ -14,12 +14,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
+    private GameManager gameManager;
+
     private Animator animator;
     private bool isJumping;
     private bool isGrounded;
     public int maxHealth = 5;
     public int currentHeal;
-    private GameManager gameManager;
     public HealBarScript HealBarScript;
 
 
@@ -56,18 +57,35 @@ public class PlayerController : MonoBehaviour
         handleHealth();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IDamageDealer damageDealer = collision.gameObject.GetComponent<IDamageDealer>();
+        if (damageDealer != null)
+        {
+            int damage = damageDealer.GetDamageAmount();
+            TakeDamage(damage);
+        }
+    }
+
     private void handleHealth()
     {
         if(Input.GetKeyDown(KeyCode.F4))
         {
             TakeDamage(1);
         }
+
     }
+
+
 
     private void TakeDamage(int damage)
     {
         currentHeal -= damage;
         HealBarScript.SetHealth(currentHeal);
+        if (currentHeal <= 0)
+        {
+            Die();
+        }
     }
     private void JumpHandle()
     {
@@ -127,6 +145,11 @@ public class PlayerController : MonoBehaviour
     {
         bool isRunning = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
         animator.SetBool("isMoving", isRunning);
+    }
+    void Die()
+    {
+        Debug.Log("Player Died!");
+        gameManager.GameOver();
     }
 
 

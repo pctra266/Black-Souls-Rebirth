@@ -1,12 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(BossPatrol), typeof(BossAttack))]
-public class BossController : MonoBehaviour
+public class BossController : MonoBehaviour, IDamageDealer
 {
     public float patrolSpeed = 2f;
     public float attackSpeed = 4f;
     public float attackRange = 15f;
-
+    public int damage = 3;
     private BossPatrol patrol;
     private BossAttack attack;
     private Transform player;
@@ -49,5 +49,10 @@ public class BossController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public int GetDamageAmount()
+    {
+        return damage;
     }
 }

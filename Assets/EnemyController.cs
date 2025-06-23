@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IDamageDealer
 {
     public GameObject pointA;
     public GameObject pointB;
     private Rigidbody2D rb;
     private Transform currentPoint;
     public float speed = 2f;
-
+    public int damage = 1;
     private float dazedTime;
     public float startDazedTime;
 
@@ -52,5 +52,10 @@ public class EnemyController : MonoBehaviour
     public void setDazedTime()
     {
         dazedTime = startDazedTime;
+    }
+
+    public int GetDamageAmount()
+    {
+        return damage;
     }
 }
